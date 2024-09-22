@@ -2,12 +2,12 @@
   "environment": "web",
   "format": "html",
   "prefix": "https://storage.googleapis.com",
-  "mainga": "UA-49880327-14",
+  "mainga": "",
   "updated": "2023-10-08T14:35:29Z",
   "id": "06-widget-dasar-flutter",
   "duration": 245,
   "title": "#06 | Widget Dasar Flutter",
-  "authors": "Habibie Ed Dien",
+  "authors": "",
   "summary": "- Mahasiswa mampu menjelaskan bagian-bagian dari project file flutter\n- Mahasiswa mampu menggunakan fitur hot reload dan restart\n- Mahasiswa mampu menjelaskan perbedaan stateful dan stateless widget\n- Mahasiswa mampu menerapkan widget-widget dasar flutter dan tema",
   "source": "1OiFTlbQ_zwYrNDNDuDgmSNhOteZ_N7fN6nZbMabg1MI",
   "theme": "mobileflutter",
@@ -20,7 +20,7 @@
   "tags": [
     "web"
   ],
-  "feedback": "https://github.com/jti-polinema/flutter-codelab/issues",
-  "ga": "G-H7507PFEJB",
+  "feedback": "",
+  "ga": "",
   "url": "06-widget-dasar-flutter"
 }

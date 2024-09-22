@@ -20,8 +20,8 @@
   </style>
 </head>
 <body>
-  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
-  <google-codelab codelab-gaid="G-H7507PFEJB"
+  <google-codelab-analytics gaid=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
                   id="06-widget-dasar-flutter"
                   title="#06 | Widget Dasar Flutter"
                   environment="web"
@@ -30,7 +30,7 @@
       <google-codelab-step label="Widget Dasar Flutter" duration="0">
         <p class="image-container"><img style="width: 624.00px" src="img\\b590fae5453bfc2.png"></p>
 <p><strong>Terakhir diperbarui:</strong> 24 September 2023</p>
-<p><strong>Penulis:</strong> Habibie Ed Dien</p>
+<p><strong>Penulis:</strong> Tim Pengajar</p>
 <p>Pada codelab ini, Anda akan mempelajari konsep dan praktik untuk dasar-dasar framework Flutter termasuk fitur penggunaan hot reload dan restart serta widget dasar dan temanya.</p>
 <h2 is-upgraded><strong>Tujuan Praktikum</strong></h2>
 <p>Setelah menyelesaikan codelab ini Anda akan mampu untuk:</p>
@@ -322,10 +322,10 @@
 </aside>
 <h2 is-upgraded><strong>Langkah 1:</strong></h2>
 <p>Login ke akun <a href="https://github.com/new" target="_blank">GitHub</a> Anda, lalu buat repository baru dengan nama &#34;<strong>flutter-fundamental-part1</strong>&#34;</p>
-<p class="image-container"><img style="width: 624.00px" src="img\\6a89c9b7526826c7.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.06.01.png"></p>
 <h2 is-upgraded><strong>Langkah 2:</strong></h2>
 <p>Lalu klik tombol &#34;<strong>Create repository</strong>&#34; lalu akan tampil seperti gambar berikut.</p>
-<p class="image-container"><img style="width: 624.00px" src="img\\bc796ded171562c9.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.07.34.png"></p>
 <h2 is-upgraded><strong>Langkah 3:</strong></h2>
 <p>Kembali ke VS code, project flutter hello_world, buka terminal pada menu <strong>Terminal &gt; New Terminal</strong>. Lalu ketik perintah berikut untuk inisialisasi git pada project Anda.</p>
 <pre><code>git init</code></pre>
@@ -343,17 +343,17 @@
 <p class="image-container"><img style="width: 470.00px" src="img\\af38367adccd71ea.png"></p>
 <h2 is-upgraded><strong>Langkah 8:</strong></h2>
 <p>Salin tautan repository Anda dari browser ke bagian ini, lalu klik <strong>Add remote</strong></p>
-<p class="image-container"><img style="width: 624.00px" src="img\\a9ccbf46f02f44c0.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.08.15.png"></p>
 <p>Setelah berhasil, tulis remote name dengan &#34;<strong>origin</strong>&#34;</p>
 <p class="image-container"><img style="width: 612.00px" src="img\\4ea8b75ee3e96239.png"></p>
 <h2 is-upgraded><strong>Langkah 9:</strong></h2>
 <p>Lakukan hal yang sama pada file <strong>README.md</strong> mulai dari Langkah 4. Setelah berhasil melakukan push, masukkan username GitHub Anda dan password berupa token yang telah dibuat (pengganti password konvensional ketika Anda login di browser GitHub). Reload halaman repository GitHub Anda, maka akan tampil hasil push kedua file tersebut seperti gambar berikut.</p>
-<p class="image-container"><img style="width: 624.00px" src="img\\6a6deb7ad495e900.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.08.53.png"></p>
 <aside class="warning"><p><strong>Perhatian:</strong> Personal access token GitHub dapat Anda buat melalui <a href="https://github.com/settings/tokens/new" target="_blank">https://github.com/settings/tokens/new</a> atau dapat membaca dokumentasi <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">GitHub Token</a>.</p>
 </aside>
 <h2 is-upgraded><strong>Langkah 10:</strong></h2>
 <p>Lakukan push juga untuk semua file lainnya dengan pilih <strong>Stage All Changes</strong>. Beri pesan commit &#34;<strong>project hello_world</strong>&#34;. Maka akan tampil di repository GitHub Anda seperti berikut.</p>
-<p class="image-container"><img style="width: 624.00px" src="img\\5808f595bea638fd.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.09.27.png"></p>
 <h2 is-upgraded><strong>Langkah 11:</strong></h2>
 <p>Kembali ke VS Code, ubah platform di pojok kanan bawah ke emulator atau device atau bisa juga menggunakan browser Chrome. Lalu coba running project <strong>hello_world</strong> dengan tekan <strong>F5</strong> atau <strong>Run &gt; Start Debugging</strong>. Tunggu proses kompilasi hingga selesai, maka aplikasi flutter pertama Anda akan tampil seperti berikut.</p>
 <p class="image-container"><img style="width: 624.00px" src="img\\9345a12821c689dc.png"></p>
@@ -406,9 +406,9 @@ class MyImageWidget extends StatelessWidget {
 <p>Lakukan penyesuaian asset pada file <code>pubspec.yaml</code> dan tambahkan file logo Anda di folder <code>assets</code> project hello_world.</p>
 <pre><code>flutter:
   assets:
-     - logo_polinema.jpg</code></pre>
+     - logo.jpg</code></pre>
 <p>Jangan lupa sesuaikan kode dan import di file <code>main.dart</code> kemudian akan tampil gambar seperti berikut.</p>
-<p class="image-container"><img style="width: 624.00px" src="img\\acd71a6fe513d2a5.png"></p>
+<p class="image-container"><img style="width: 624.00px" src="img/Screenshot 2024-09-23 at 01.10.07.png"></p>
 
 
       </google-codelab-step>
@@ -712,7 +712,7 @@ class _MyHomePageState extends State&lt;MyHomePage&gt; {
 <li><a href="https://drive.google.com/file/d/1hJbctx-_O3B6kUeG70bJD5xfbnsWwBXY/view?usp=sharing" target="_blank">Flutter for Beginners Second Edition</a></li>
 <li><a href="https://www.youtube.com/flutterdev" target="_blank">https://www.youtube.com/flutterdev</a> </li>
 <li><a href="https://github.com/PacktPublishing/Flutter-for-Beginners-Second-Edition" target="_blank">https://github.com/PacktPublishing/Flutter-for-Beginners-Second-Edition</a> </li>
-<li>Buku Ajar Pemrograman Mobile Dengan Flutter, Jurusan Teknologi Informasi, Politeknik Negeri Malang. 2021.</li>
+<li>Buku Ajar Pemrograman Mobile Dengan Flutter</li>
 </ul>
 
 
