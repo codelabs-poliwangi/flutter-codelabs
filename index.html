@@ -2,374 +2,241 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Codelabs: Flutter Development</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codelabs: Flutter Development (Modern Look)</title>
     <meta content="Modul Praktikum Pemrograman Mobile Berbasis Codelabs" name="description">
-    <meta content=" pemrograman mobile, codelabs" name="keywords">
+    <meta content="pemrograman mobile, codelabs, flutter, threejs" name="keywords">
 
-    <!-- Favicons -->
     <link href="assets/img/poliwangi.png" rel="icon">
-    <link href="assets/img/poliwangi.png" rel="">
 
-    <!-- Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
-
-    <!-- =======================================================
-  * Template Name: PhotoFolio
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/photofolio-bootstrap-photography-website-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+        /* Canvas untuk Three.js sebagai background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-slate-50 text-slate-800">
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="header d-flex align-items-center fixed-top">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
+    <canvas id="bg-canvas"></canvas>
 
-            <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/poliwangi.png" alt="jti">
-                <!-- <i class="bi bi-camera"></i> -->
-                <h1>TRPL Poliwangi</h1>
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="assets/img/poliwangi.png" alt="logo" class="h-10">
+                <h1 class="text-xl font-bold text-slate-900 hidden sm:block">TRPL Poliwangi</h1>
             </a>
 
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a href="index.html" class="active">Modul Praktikum</a></li>
-                    <li><a href="about.html">Tentang</a></li>
-                </ul>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="index.html" class="text-slate-900 font-semibold hover:text-blue-600 transition-colors">Modul Praktikum</a>
+                <a href="#" class="text-slate-600 hover:text-blue-600 transition-colors">Tentang</a>
             </nav>
-            <!-- .navbar -->
 
-            <div class="header-social-links">
-                <a target="_blank" href="#" class="github"><i class="bi bi-github"></i></a>
-                <a target="_blank" href="#" class="globe"><i class="bi bi-globe"></i></a>
-                <a target="_blank" href="https://www.tiktok.com/@sepyankristanto" class="tiktok"><i class="bi bi-tiktok"></i></a>
-                <a target="_blank" href="https://www.youtube.com/@sepyanpurnama" class="youtube"><i class="bi bi-youtube"></i></a>
-                <a target="_blank" href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+            <div class="flex items-center gap-4 text-xl">
+                <a target="_blank" href="#" class="text-slate-500 hover:text-slate-900 transition-colors"><i class="bi bi-github"></i></a>
+                <a target="_blank" href="https://www.youtube.com/@sepyanpurnama" class="text-slate-500 hover:text-red-600 transition-colors"><i class="bi bi-youtube"></i></a>
+                <a target="_blank" href="https://www.tiktok.com/@sepyankristanto" class="text-slate-500 hover:text-slate-900 transition-colors"><i class="bi bi-tiktok"></i></a>
             </div>
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
         </div>
     </header>
-    <!-- End Header -->
 
-    <main id="main" data-aos="fade" data-aos-delay="1500">
+    <main class="relative">
 
-        <!-- ======= End Page Header ======= -->
-        <div class="page-header d-flex align-items-center">
-            <div class="container position-relative">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2>Codelabs: Pemrograman Mobile</h2>
-                        <p>Modul praktikum digital berbasis codelabs untuk mata kuliah Pemrograman Mobile </p>
-                    </div>
-                </div>
+        <section class="min-h-[60vh] flex items-center justify-center text-center px-4 py-20">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4 tracking-tight">Codelabs: Pemrograman Mobile</h2>
+                <p class="text-lg md:text-xl text-slate-600">
+                    Modul praktikum digital berbasis codelabs untuk mata kuliah Pemrograman Mobile dengan tampilan modern.
+                </p>
             </div>
-        </div>
-        <!-- End Page Header -->
-
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-activity"></i>
-                            <h4><a target="_blank" href="01-pengenalan/" class="stretched-link">#01 Pengantar Pemrograman Mobile</a></h4>
-                            <p>Mampu memahami konsep pemrograman pada perangkat mobile dan menerapkan teknik pengelolaan repositori proyek mobile berbasis version control (Git).</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-bounding-box-circles"></i>
-                            <h4><a target="_blank" href="02-pengantar-bahasa-pemrograman-dart-bag-1/" class="stretched-link">#02 Pemrograman Dasar Dart - Bag.1</a></h4>
-                            <p>Mampu mendeklarasikan variable dan tipe data dengan benar pada bahasa pemrograman Dart.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-calendar4-week"></i>
-                            <h4><a target="_blank" href="#" class="stretched-link">#03 Pemrograman Dasar Dart - Bag.2</a></h4>
-                            <p>Mampu menerapkan teknik percabangan dan perulangan pada bahasa pemrograman Dart.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-broadcast"></i>
-                            <h4><a target="_blank" href="04-pengantar-bahasa-pemrograman-dart-bag-3/" class="stretched-link">#04 Pemrograman Dasar Dart - Bag.3</a></h4>
-                            <p>Mampu menerapkan collections dan functions pada bahasa pemrograman Dart.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                </div>
-
-            </div>
-
-            <div class="container mb-4"></div>
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-activity"></i>
-                            <h4><a href="" class="stretched-link">#05 Setup Flutter & First App</a></h4>
-                            <p>Mampu melakukan instalasi framework Flutter, memvalidasi hasil instalasi dengan benar, dan mengonfigurasi emulator/device.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-bounding-box-circles"></i>
-                            <h4><a target="_blank" href="#" class="stretched-link">#06 Widget Dasar Flutter</a></h4>
-                            <p>Mampu menerapkan widget dasar, stateless dan stateful widget pada Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-calendar4-week"></i>
-                            <h4><a target="_blank" href="#" class="stretched-link">#07 Layout dan Navigasi</a></h4>
-                            <p>Mampu melakukan penyusunan layout dan navigasi serta routing.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-broadcast"></i>
-                            <h4><a href="" class="stretched-link">#</a></h4>
-                            <p>Merancang dan membangun tampilan layout aplikasi OCR berbasis mobile dengan dasar teori/praktik pertemuan ke-1 sampai 7.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                </div>
-
-            </div>
-
-            <div class="container mb-4"></div>
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-activity"></i>
-                            <h4><a target="_blank" href="09-manajemen-plugin/" class="stretched-link">#</a></h4>
-                            <p>Mampu mengelola plugin di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-camera"></i>
-                            <h4><a target="_blank" href="#" class="stretched-link">#</a></h4>
-                            <p>Mampu menggunakan plugin kamera di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-calendar4-week"></i>
-                            <h4><a target="_blank" href="11-basic-state/" class="stretched-link">#</a></h4>
-                            <p>Mampu mengelola state di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-broadcast"></i>
-                            <h4><a target="_blank" href="11-async/" class="stretched-link">#</a></h4>
-                            <p>Mampu melakukan pemrograman asynchronous di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                </div>
-
-            </div>
-
-            <div class="container mb-4"></div>
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-activity"></i>
-                            <h4><a href="13-state-streams-bloc/" target="_blank" class="stretched-link">#</a></h4>
-                            <p>Mampu mengelola state dengan stream dan BLoC Pattern di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-bounding-box-circles"></i>
-                            <h4><a href="" class="stretched-link">#14 Persistensi Data</a></h4>
-                            <p>Mampu mengelola data JSON dan persistensi data di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-calendar4-week"></i>
-                            <h4><a href="" class="stretched-link">#15 Restful API</a></h4>
-                            <p>Mampu menerapkan komunikasi melalui internet dengan RESTful API di Flutter.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex">
-                        <div class="service-item position-relative">
-                            <i class="bi bi-broadcast"></i>
-                            <h4><a href="" class="stretched-link">#16 Final Project</a></h4>
-                            <p>Mampu menyelesaikan final project secara berkelompok melalui Git.</p>
-                        </div>
-                    </div>
-                    <!-- End Service Item -->
-
-                </div>
-
-            </div>
-
         </section>
-        <!-- End Services Section -->
 
-        <!-- ======= Pricing Section ======= -->
-        <section id="pricing" class="pricing">
-            <div class="container">
-
-                <div class="section-header">
-                    <h2>Referensi</h2>
-                    <p>Silakan akses untuk bahan tambahan materi</p>
-                </div>
-
-                <div class="row gy-4 gx-lg-5">
-
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Flutter Cookbook, Second Edition by Simone Alessandria (2023)</h3>
-                            <h4><a target="_blank" href="https://drive.google.com/file/d/1W9uSLC9wlf9fFudmCWFHTx9dan5SXII0/view">Akses e-book</a></h4>
-                        </div>
+        <section id="modul" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div class="bg-white/60 backdrop-blur-md rounded-xl shadow-lg p-6 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group">
+                        <i class="bi bi-activity text-4xl text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">#01 Pengantar Pemrograman Mobile</h4>
+                        <p class="text-slate-600 text-sm flex-grow">Mampu memahami konsep pemrograman pada perangkat mobile dan menerapkan teknik pengelolaan repositori proyek.</p>
+                        <a target="_blank" href="01-pengenalan/" class="stretched-link mt-4 font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Buka Modul <i class="bi bi-arrow-right-short"></i>
+                        </a>
                     </div>
-                    <!-- End Pricing Item -->
-
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Mastering Flutter, A Beginner's Guide by Sufyan bin Uzayr (2023)</h3>
-                            <h4><a target="_blank" href="https://drive.google.com/file/d/1W8l7EHa7ssyA6xqXCvYnBbUfYEJTXAcY/view">Akses e-book</a></h4>
-                        </div>
+                    <div class="bg-white/60 backdrop-blur-md rounded-xl shadow-lg p-6 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group">
+                        <i class="bi bi-code-slash text-4xl text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">#02 Pemrograman Dasar Dart - Bag.1</h4>
+                        <p class="text-slate-600 text-sm flex-grow">Mampu mendeklarasikan variable dan tipe data dengan benar pada bahasa pemrograman Dart.</p>
+                        <a target="_blank" href="02-pengantar-bahasa-pemrograman-dart-bag-1/" class="stretched-link mt-4 font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Buka Modul <i class="bi bi-arrow-right-short"></i>
+                        </a>
                     </div>
-                    <!-- End Pricing Item -->
-
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Flutter for Beginners, Second Edition by Thomas Bailey | Alessandro Biessek (2021)</h3>
-                            <h4><a target="_blank" href="https://drive.google.com/file/d/1hJbctx-_O3B6kUeG70bJD5xfbnsWwBXY/view">Akses e-book</a></h4>
-                        </div>
+                    <div class="bg-white/60 backdrop-blur-md rounded-xl shadow-lg p-6 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group">
+                        <i class="bi bi-diagram-3 text-4xl text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">#03 Pemrograman Dasar Dart - Bag.2</h4>
+                        <p class="text-slate-600 text-sm flex-grow">Mampu menerapkan teknik percabangan dan perulangan pada bahasa pemrograman Dart.</p>
+                        <a target="_blank" href="#" class="stretched-link mt-4 font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Buka Modul <i class="bi bi-arrow-right-short"></i>
+                        </a>
                     </div>
-                    <!-- End Pricing Item -->
-
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Flutter documentation</h3>
-                            <h4><a target="_blank" href="https://docs.flutter.dev/">Akses docs</a></h4>
-                        </div>
+                    <div class="bg-white/60 backdrop-blur-md rounded-xl shadow-lg p-6 flex flex-col transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group">
+                        <i class="bi bi-braces text-4xl text-blue-500 mb-4"></i>
+                        <h4 class="font-bold text-lg text-slate-900 mb-2">#04 Pemrograman Dasar Dart - Bag.3</h4>
+                        <p class="text-slate-600 text-sm flex-grow">Mampu menerapkan collections dan functions pada bahasa pemrograman Dart.</p>
+                        <a target="_blank" href="04-pengantar-bahasa-pemrograman-dart-bag-3/" class="stretched-link mt-4 font-semibold text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Buka Modul <i class="bi bi-arrow-right-short"></i>
+                        </a>
                     </div>
-                    <!-- End Pricing Item -->
 
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Dart documentation</h3>
-                            <h4><a target="_blank" href="https://dart.dev/guides">Akses docs</a></h4>
-                        </div>
                     </div>
-                    <!-- End Pricing Item -->
-
-                    <div class="col-lg-6">
-                        <div class="pricing-item d-flex justify-content-between">
-                            <h3>Flutter YouTube Channel</h3>
-                            <h4><a target="_blank" href="https://www.youtube.com/flutterdev">Akses YouTube</a></h4>
-                        </div>
-                    </div>
-                    <!-- End Pricing Item -->
-
-                </div>
+            </div>
         </section>
-        <!-- End Pricing Section -->
+        
+        <section id="referensi" class="py-16 md:py-24 bg-white/50">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Referensi Tambahan</h2>
+                     <p class="mt-3 text-lg text-slate-600">Silakan akses untuk bahan tambahan materi</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg shadow-md p-4 flex justify-between items-center">
+                        <h3 class="font-semibold">Flutter Cookbook, Second Edition</h3>
+                        <a target="_blank" href="https://drive.google.com/file/d/1W9uSLC9wlf9fFudmCWFHTx9dan5SXII0/view" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors text-sm">Akses E-book</a>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-4 flex justify-between items-center">
+                        <h3 class="font-semibold">Mastering Flutter, A Beginner's Guide</h3>
+                        <a target="_blank" href="https://drive.google.com/file/d/1W8l7EHa7ssyA6xqXCvYnBbUfYEJTXAcY/view" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors text-sm">Akses E-book</a>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-4 flex justify-between items-center">
+                        <h3 class="font-semibold">Flutter for Beginners, Second Edition</h3>
+                        <a target="_blank" href="https://drive.google.com/file/d/1hJbctx-_O3B6kUeG70bJD5xfbnsWwBXY/view" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors text-sm">Akses E-book</a>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-md p-4 flex justify-between items-center">
+                        <h3 class="font-semibold">Flutter Documentation</h3>
+                        <a target="_blank" href="https://docs.flutter.dev/" class="bg-slate-700 text-white px-4 py-2 rounded-md hover:bg-slate-800 transition-colors text-sm">Akses Docs</a>
+                    </div>
+                </div>
+             </div>
+        </section>
 
     </main>
-    <!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="container">
+    <footer class="bg-slate-100 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-500">
             <div class="copyright">
-                &copy; Copyright <strong><span>PhotoFolio</span></strong>. All Rights Reserved 2024
+                &copy; Copyright <strong><span>TRPL Poliwangi</span></strong>. All Rights Reserved 2024
             </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            <div class="credits text-sm mt-2">
+                Designed with <span class="text-red-500">&hearts;</span>, inspired by BootstrapMade
             </div>
         </div>
     </footer>
-    <!-- End Footer -->
 
-    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <div id="preloader">
-        <div class="line"></div>
-    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.161.0/build/three.module.js"
+            }
+        }
+    </script>
+    
+    <script type="module">
+        import * as THREE from 'three';
 
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+        // Inisialisasi Scene, Camera, dan Renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#bg-canvas'),
+            alpha: true // Membuat background renderer transparan
+        });
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
+        camera.position.z = 5;
+
+        // Membuat Geometri Partikel Gelombang
+        const planeGeometry = new THREE.PlaneGeometry(25, 25, 70, 70);
+        const material = new THREE.PointsMaterial({
+            color: 0x3b82f6, // Warna biru dari Tailwind (blue-500)
+            size: 0.04
+        });
+        const mesh = new THREE.Points(planeGeometry, material);
+        scene.add(mesh);
+
+        // Interaktivitas Mouse
+        const mouse = { x: 0, y: 0 };
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Clock untuk animasi
+        const clock = new THREE.Clock();
+
+        // Fungsi Animasi
+        function animate() {
+            const elapsedTime = clock.getElapsedTime();
+
+            requestAnimationFrame(animate);
+
+            // Animasi gelombang pada partikel
+            const positions = planeGeometry.attributes.position.array;
+            for (let i = 0; i < positions.length; i += 3) {
+                const x = positions[i];
+                const y = positions[i + 1];
+                
+                // Kalkulasi gelombang Sin dan Cos
+                const waveX = Math.sin(x * 0.5 + elapsedTime) * 0.5;
+                const waveY = Math.cos(y * 0.5 + elapsedTime) * 0.5;
+                
+                // Interaksi dengan mouse
+                const dx = x - mouse.x * 10;
+                const dy = y - mouse.y * 10;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const force = Math.max(0, 1 - distance / 5);
+
+                positions[i + 2] = waveX + waveY + force * 2.0; // Atur ketinggian z
+            }
+            planeGeometry.attributes.position.needsUpdate = true;
+            
+            // Rotasi ringan
+            mesh.rotation.x += 0.0005;
+            mesh.rotation.y += 0.0005;
+
+            renderer.render(scene, camera);
+        }
+
+        // Menangani resize window
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
 </body>
 
 </html>
