@@ -1,0 +1,26 @@
+{
+    "environment": "web",
+    "format": "html",
+    "prefix": "https://storage.googleapis.com",
+    "mainga": "UA-49880327-14",
+    "updated": "2023-10-15T08:56:47Z",
+    "id": "06-layout-navigasi",
+    "duration": 390,
+    "title": "#06 | Layout dan Navigasi",
+    "authors": "",
+    "summary": "Mampu melakukan penyusunan layout dan navigasi serta routing",
+    "source": "",
+    "theme": "mobileflutter",
+    "status": [
+        "published"
+    ],
+    "category": [
+        "mobileflutter"
+    ],
+    "tags": [
+        "web"
+    ],
+    "feedback": "#",
+    "ga": "",
+    "url": "06-layout-navigasi"
+}
